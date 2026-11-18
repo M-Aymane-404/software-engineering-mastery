@@ -54,4 +54,26 @@ public class BinaryToolkit {
         return decimal;
 
     }
+
+
+
+    public static int signedDecode(String binary){
+        int decimal = 0;
+        if(binary==null || binary.isEmpty()){
+            throw new IllegalArgumentException("il faut entre un nombre binaire");
+        }
+        if(!(binary.trim().length()==8)){
+            throw new IllegalArgumentException("il faut entrere 8 bit ");
+        }
+
+       decimal = binaryToDecimal(binary);
+
+
+
+        if (decimal > 127){
+
+            return  (decimal - 256) ;
+        }
+        return decimal;
+    }
 }
